@@ -1,32 +1,101 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
-
 int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
+    int i;
+    int casas, opcaoPeca, direcao;
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+    printf("=== Desafio Xadrez - Nivel Novato ===\n\n");
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+    // Escolher a peça
+    printf("Escolha a peca para mover:\n");
+    printf("1 - Bispo\n");
+    printf("2 - Torre\n");
+    printf("3 - Rainha\n");
+    printf("Opcao: ");
+    scanf("%d", &opcaoPeca);
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+    printf("\nQuantas casas deseja mover? ");
+    scanf("%d", &casas);
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+    printf("\nEscolha a direcao do movimento:\n");
+    printf("1 - Cima\n");
+    printf("2 - Baixo\n");
+    printf("3 - Esquerda\n");
+    printf("4 - Direita\n");
+    printf("5 - Diagonal superior direita\n");
+    printf("6 - Diagonal superior esquerda\n");
+    printf("7 - Diagonal inferior direita\n");
+    printf("8 - Diagonal inferior esquerda\n");
+    printf("Opcao: ");
+    scanf("%d", &direcao);
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+    printf("\n=== Movimento da peca ===\n");
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    if (opcaoPeca == 1) {
+        printf("Bispo se movendo %d casas:\n", casas);
+        for (i = 1; i <= casas; i++) {
+            if (direcao == 5)
+                printf("Diagonal superior direita - Passo %d\n", i);
+            else if (direcao == 6)
+                printf("Diagonal superior esquerda - Passo %d\n", i);
+            else if (direcao == 7)
+                printf("Diagonal inferior direita - Passo %d\n", i);
+            else if (direcao == 8)
+                printf("Diagonal inferior esquerda - Passo %d\n", i);
+            else
+                printf("O bispo so pode se mover na diagonal!\n");
+        }
+    }
+
+    else if (opcaoPeca == 2) {
+        printf("Torre se movendo %d casas:\n", casas);
+        i = 1;
+        while (i <= casas) {
+            if (direcao == 1)
+                printf("Cima - Passo %d\n", i);
+            else if (direcao == 2)
+                printf("Baixo - Passo %d\n", i);
+            else if (direcao == 3)
+                printf("Esquerda - Passo %d\n", i);
+            else if (direcao == 4)
+                printf("Direita - Passo %d\n", i);
+            else
+                printf("A torre nao se move na diagonal!\n");
+            i++;
+        }
+    }
+
+    else if (opcaoPeca == 3) {
+        printf("Rainha se movendo %d casas:\n", casas);
+        i = 1;
+        do {
+            if (direcao == 1)
+                printf("Cima - Passo %d\n", i);
+            else if (direcao == 2)
+                printf("Baixo - Passo %d\n", i);
+            else if (direcao == 3)
+                printf("Esquerda - Passo %d\n", i);
+            else if (direcao == 4)
+                printf("Direita - Passo %d\n", i);
+            else if (direcao == 5)
+                printf("Diagonal superior direita - Passo %d\n", i);
+            else if (direcao == 6)
+                printf("Diagonal superior esquerda - Passo %d\n", i);
+            else if (direcao == 7)
+                printf("Diagonal inferior direita - Passo %d\n", i);
+            else if (direcao == 8)
+                printf("Diagonal inferior esquerda - Passo %d\n", i);
+            else
+                printf("Direcao invalida!\n");
+            i++;
+        } while (i <= casas);
+    }
+
+    else {
+        printf("Opcao de peca invalida!\n");
+    }
+
+    printf("\n=== Fim do movimento ===\n");
 
     return 0;
 }
